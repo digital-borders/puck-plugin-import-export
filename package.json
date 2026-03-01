@@ -41,8 +41,9 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "release": "release-it",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prepublishOnly": "node prepublish.js",
+    "release": "RELEASE_MODE=true release-it"
   },
   "peerDependencies": {
     "@puckeditor/core": "^0.21.0",
