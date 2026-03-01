@@ -1,3 +1,5 @@
+import { execSync } from 'child_process';
+
 const RELEASE_MODE = !!process.env.RELEASE_MODE;
 
 if (!RELEASE_MODE) {
@@ -8,7 +10,6 @@ if (!RELEASE_MODE) {
 }
 console.log('PUBLISHING IN RELEASE MODE');
 // Check also that node is on version 16.20.0 using cli
-const { execSync } = require('child_process');
 const nodeVersion = execSync('node --version').toString();
 
 if (!nodeVersion.includes('v16.20.0')) {
