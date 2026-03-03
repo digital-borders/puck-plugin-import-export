@@ -17,12 +17,13 @@ This plugin adds a clean UI panel to Puck that allows you to:
 ---
 
 ## 📸 Screenshot
-![Screenshot of the Import/Export plugin UI](https://raw.githubusercontent.com/digital-borders/puck-plugin-import-export/main/screen/no-component-selected.png)
 
-![Screenshot of the Import/Export plugin UI with a component selected](https://raw.githubusercontent.com/digital-borders/puck-plugin-import-export/main/screen/component-selected.png)
+<p align="left">
+  <img src="https://raw.githubusercontent.com/digital-borders/puck-plugin-import-export/main/screen/no-component-selected.png" width="35%" />
+  <img src="https://raw.githubusercontent.com/digital-borders/puck-plugin-import-export/main/screen/component-selected.png" width="35%" />
+</p>
 
 ---
-
 
 ## ✨ Features
 
@@ -117,7 +118,7 @@ This plugin uses **Tailwind CSS + shadcn/ui** for styling, but you can easily cu
 import "@digital-borders/puck-plugin-import-export/styles.css";
 ```
 
-Styles are scoped to the plugin root (``.pp-root``) and do not apply globally.
+Styles are scoped to the plugin root (`.pp-root`) and do not apply globally.
 
 If you want to customize themes, you can override CSS variables on the plugin root.
 
