@@ -16,6 +16,14 @@ This plugin adds a clean UI panel to Puck that allows you to:
 
 ---
 
+## 📸 Screenshot
+![Screenshot of the Import/Export plugin UI](https://raw.githubusercontent.com/digital-borders/puck-plugin-import-export/main/screen/no-component-selected.png)
+
+![Screenshot of the Import/Export plugin UI with a component selected](https://raw.githubusercontent.com/digital-borders/puck-plugin-import-export/main/screen/component-selected.png)
+
+---
+
+
 ## ✨ Features
 
 - 🔁 Import / Export Puck content as JSON
