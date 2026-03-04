@@ -2,29 +2,21 @@ import { createUsePuck } from "@puckeditor/core";
 import { ArrowUpDown } from "lucide-react";
 import {
   ImportExportPlugin,
-  ImportExportPluginOptions,
-} from "./components/ImportExport";
+  type ImportExportPluginOptions,
+} from "./components/import-export";
+import type { ReactElement } from "react";
 
 const usePuck = createUsePuck();
 
-export function createImportExportPlugin(
-  options: ImportExportPluginOptions = {},
-) {
-  const {
-    onBeforeExport,
-    onBeforeImport,
-    // fileName = "puck-export.json",
-    // includeRoot = true,
-    // className,
-  } = options;
-
+export function createImportExportPlugin(options: ImportExportPluginOptions) {
+  const { onBeforeExport, onBeforeImport } = options;
   const PluginWrapper = () => {
     const isOpened = usePuck(
-      (s) => s.appState.ui.plugin.current === "import-export",
+      (s) => s.appState.ui.plugin.current === "@digitalborders/import-export",
     );
 
     if (!isOpened) {
-      return null;
+      return null as unknown as ReactElement; // Return null when the plugin is not active
     }
 
     return (
@@ -36,7 +28,7 @@ export function createImportExportPlugin(
   };
 
   return {
-    name: "import-export",
+    name: "@digitalborders/import-export",
     label: "In/Out",
     icon: <ArrowUpDown />,
 

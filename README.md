@@ -108,57 +108,27 @@ type ImportExportPluginOptions = {
 
 ---
 
-## 🎨 Styling & CSS
+## 🧩 Requirements
 
-This plugin uses **Tailwind CSS + shadcn/ui** for styling, but you can easily customize it:
-
-- CSS is shipped as a separate file
-
-```ts
-import "@digital-borders/puck-plugin-import-export/styles.css";
-```
-
-Styles are scoped to the plugin root (`.pp-root`) and do not apply globally.
-
-If you want to customize themes, you can override CSS variables on the plugin root.
+- React 18+
+- `@puckeditor/core`
+- A client-side environment (`"use client"`)
 
 ---
 
-## 🛠️ Development
+## 🛠 Development (Vite)
 
-### Prerequisites
-
-- Node.js v22.18.0 (managed with `.nvm`)
-
-### Install dependencies
+Build the library bundle:
 
 ```bash
-npm install
+pnpm build:library
 ```
 
-### Run type checking
+Run the demo app:
 
 ```bash
-npm run typecheck
+pnpm dev:demo
 ```
-
-### Lint the source
-
-```bash
-npm run lint
-```
-
-### Build the library
-
-```bash
-npm run build
-```
-
-This will generate:
-
-- ESM + CJS bundles
-- Type declarations
-- Tailwind CSS output
 
 ---
 
@@ -167,38 +137,47 @@ This will generate:
 - TypeScript
 - React
 - @puckeditor/core
+- Vite (library build + demo)
 - Tailwind CSS
 - shadcn/ui
 - Radix UI
-- tsup
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are **very welcome** ❤️
+Contributions are **very welcome**!
 
-Whether you want to:
+You can help by:
 
-- fix a bug
-- improve the UI
-- add new import/export options
-- improve documentation
-- propose new plugin ideas
+- Improving the UI/UX
+- Adding template categories or grouping
+- Adding persistence adapters
+- Writing tests or documentation
+- Proposing new plugin ideas
 
-Feel free to:
+### Steps
 
-1. Fork the repo
-2. Create a feature branch
-3. Open a Pull Request
-
-If you’re unsure where to start, open an issue — discussions are encouraged.
+1. Fork the repository
+2. Create a new branch
+3. Make your changes
+4. Open a pull request
 
 ---
 
 ## 📄 License
 
-MIT © Contributors
+MIT © Digital Borders
+
+---
+
+## 💡 Ideas & Roadmap
+
+- Template preview thumbnails
+- Remote template libraries
+- Drag & drop insertion
+- Template versioning
+- Permissions & sharing
 
 ---
 
