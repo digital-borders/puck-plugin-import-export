@@ -1,6 +1,6 @@
 {
   "name": "@digital-borders/puck-plugin-import-export",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A plugin for Puck Editor that allows users to import and export components to/from the editor.",
   "license": "MIT",
   "author": "Digital Borders",

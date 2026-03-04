@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.0](https://github.com/digital-borders/puck-plugin-import-export/compare/0.2.0...0.3.0) (2026-03-04)
+
+### Features
+
+* refactor code to use vite library mode ([78ed6f4](https://github.com/digital-borders/puck-plugin-import-export/commit/78ed6f4e97f2319c7c7a680a805530a1924d12b0))
+
 ## 0.2.0 (2026-03-01)
 
 ### Features
