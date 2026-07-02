@@ -19,15 +19,15 @@ export const Import = ({
   selectedItem,
   onBeforeImport,
 }: {
-  selectedItem: ComponentData;
+  selectedItem?: ComponentData;
   onBeforeImport?: (components: ComponentData[]) => Promise<ComponentData[]>;
 }) => {
   const getPuck = useGetPuck();
   const puckDispatch = usePuck((s) => s.dispatch);
   const [importJson, setImportJson] = useState("");
-  const [insertPosition, setInsertPosition] = useState<"before" | "after">(
-    "after",
-  );
+  const [insertPosition, setInsertPosition] = useState<
+    "before" | "after" | "root"
+  >("root");
   const [isImporting, setIsImporting] = useState(false);
   const [importError, setImportError] = useState<string>("");
   const handleImportComponent = useCallback(async () => {
@@ -73,6 +73,30 @@ export const Import = ({
       const cleanedComponents = await cleanComponents(components);
 
       console.log("Components cleaned", cleanedComponents, selectedItem);
+
+      if (!selectedItem && insertPosition === "root") {
+        const newBlocks = [...appState.data.content, ...cleanedComponents];
+        puckDispatch({
+          type: "setData",
+          data: (previous) => {
+            return {
+              ...previous,
+              content: newBlocks,
+            };
+          },
+        });
+        setImportJson("");
+        setIsImporting(false);
+        return;
+      }
+
+      if (!selectedItem) {
+        setImportError(
+          "Please select a component to insert before or after, or choose 'root' to insert at the end of the page.",
+        );
+        setIsImporting(false);
+        return;
+      }
 
       // this map is usefull if the user try to  import the same component inside itself, to avoid infinite loop of substitution
       const substitutedMap = new Map<string, boolean>();
@@ -160,30 +184,40 @@ export const Import = ({
             </p>
           )}
         </div>
-
-        <div>
-          <Label className="text-sm">Insert Position</Label>
-          <RadioGroup
-            value={insertPosition}
-            onValueChange={(value) =>
-              setInsertPosition(value as "before" | "after")
-            }
-            className="mt-2 space-y-2"
-          >
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="before" id="before" />
-              <Label htmlFor="before" className="text-sm font-normal">
-                Before &quot;{selectedItem?.type}&quot;
-              </Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="after" id="after" />
-              <Label htmlFor="after" className="text-sm font-normal">
-                After &quot;{selectedItem?.type}&quot;
-              </Label>
-            </div>
-          </RadioGroup>
-        </div>
+        {!selectedItem ? (
+          <div className="rounded-md border border-border bg-muted/40 px-3 py-2">
+            <p className="text-xs text-muted-foreground">
+              <span className="font-medium text-foreground">
+                Insert position:
+              </span>{" "}
+              End of page (root)
+            </p>
+          </div>
+        ) : (
+          <div>
+            <Label className="text-sm">Insert Position</Label>
+            <RadioGroup
+              value={insertPosition}
+              onValueChange={(value) =>
+                setInsertPosition(value as "before" | "after")
+              }
+              className="mt-2 space-y-2"
+            >
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="before" id="before" />
+                <Label htmlFor="before" className="text-sm font-normal">
+                  Before &quot;{selectedItem?.type}&quot;
+                </Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="after" id="after" />
+                <Label htmlFor="after" className="text-sm font-normal">
+                  After &quot;{selectedItem?.type}&quot;
+                </Label>
+              </div>
+            </RadioGroup>
+          </div>
+        )}
 
         <Button
           onClick={handleImportComponent}

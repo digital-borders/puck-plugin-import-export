@@ -62,6 +62,9 @@ export function ImportExportPlugin(props: ImportExportPluginOptions) {
             <ExportAll />
 
             <Separator />
+            <Import onBeforeImport={onBeforeImport} />
+
+            <Separator />
 
             <div className="border-border rounded-lg border border-dashed p-6 text-center">
               <FileJson className="text-muted-foreground mx-auto mb-3 h-12 w-12" />

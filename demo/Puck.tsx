@@ -12,6 +12,7 @@ const importExportPlugin = createImportExportPlugin({
   onBeforeImport: async (data) => {
     // Example: handle the import of data
     console.log("Importing data:", data);
+    return data; // Return the data to be imported (you can modify it if needed)
   },
 });
 
