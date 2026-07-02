@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.1](https://github.com/digital-borders/puck-plugin-import-export/compare/0.3.0...0.3.1) (2026-07-02)
+
+### Bug Fixes
+
+* allow imports even when no component is selected ([480bfd8](https://github.com/digital-borders/puck-plugin-import-export/commit/480bfd8453500148a6a2c6ba2e60b4b6b2421f0d))
+
 ## [0.3.0](https://github.com/digital-borders/puck-plugin-import-export/compare/0.2.0...0.3.0) (2026-03-04)
 
 ### Features
